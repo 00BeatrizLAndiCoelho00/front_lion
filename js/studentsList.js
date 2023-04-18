@@ -1,12 +1,14 @@
 'use strict'
 
+//alert('works')
+
 
 import { fetchApiDataStudents } from "./api.js";
 import { createStudentInfoScreen, student } from "./studentInfo.js";
 
+//________________________________________________________________________________________//
 
 
-//alert('works')
 const defaultScreen = function(){
 
   let screenListStudent = document.createElement("div")
@@ -16,7 +18,118 @@ const defaultScreen = function(){
 
 }
 
-//___________________________option _________________
+//________________________________________________________________________________________//
+
+const studentCardBox = function(){
+
+  let studentBox = document.createElement("div")
+  studentBox.id = "all_students"
+  studentBox.className = "all_students"
+
+  overal_content_list_student.appendChild(studentBox)
+}
+//________________________________________________________________________________________//
+
+const tittleStudentList =  async (subject)=> {
+  
+  let dataSubject = subject
+  
+  var subjectTextTittle  = dataSubject.replace(/[0-9\.]+/,'');
+
+  let tittleStudent = document.createElement("div");
+  tittleStudent.id = "tittle_list_student"
+  tittleStudent.textContent = subjectTextTittle
+  tittleStudent.className = "tittle_list_student"
+  header.appendChild(tittleStudent ) 
+
+}
+
+//________________________________________________________________________________________//
+
+const createListStudentsScreen = async ()=>{
+
+  defaultScreen()
+  menuBar()
+  optionBox()
+  yearBox()
+  studentCardBox()
+  
+}
+
+//________________________________________________________________________________________//
+
+const cardStudent =  async (subject)=> {
+
+  let dataSubject = subject
+  const listStudentData = await fetchApiDataStudents(dataSubject)  
+
+  listStudentData.students.forEach(element => {
+
+    let studentCardImg = document.createElement("img")
+    studentCardImg.className = "student_card_img"
+    studentCardImg.src = element.foto
+
+    
+    let studentCardName = document.createElement("div")
+    studentCardName.className = "student_card_Name"
+    studentCardName.textContent = element.nome
+
+    let studentCard = document.createElement("div")
+    studentCard.id= "student_card_list"
+    studentCard.className = 'student_card_list'
+
+    studentCard.onclick = function(){
+
+      removeStudentScreen()
+      createStudentInfoScreen()
+      student(element.matricula)
+      
+    }
+
+    if(element.status == "Cursando"){
+      studentCard.style.backgroundColor = "var(--headerFoter)"
+   }else{
+    studentCard.style.backgroundColor = "var(--menuHeaderSubtitle)"
+   }
+  
+     
+    all_students.appendChild(studentCard)
+
+    studentCard.appendChild(studentCardImg)
+    studentCard.appendChild(studentCardName)
+
+  })
+
+
+
+}
+
+
+
+//________________________________________________________________________________________//
+
+const removeListStudents = function(){
+
+  let screenListStudents = document.getElementById("overal_content_list_student")
+
+  if( screenListStudents  != null ){
+    content1.removeChild(overal_content_list_student)
+  }
+
+}
+
+//________________________________________________________________________________________//
+
+
+const cardStudentStatus = async () =>{
+
+
+
+ 
+}
+
+
+
 const optionBox = function(){
 
   let optionsStaus= document.createElement("div");
@@ -32,10 +145,22 @@ const optionBox = function(){
     let option = document.createElement("button")
     option.textContent = element
     option.className = "option_element_status"
+
+    option.onclick = function(){
+
+      //removes the screen
+      removeListStudents()
+      cardStudentStatus()
+      
+      
+    }
+
     option_status.appendChild(option)
 
   });
 }
+
+//________________________________________________________________________________________//
 
 const yearBox = function(){
 
@@ -58,6 +183,7 @@ const yearBox = function(){
 
 }
 
+//________________________________________________________________________________________//
 
 const optionYear = function(){
 
@@ -80,15 +206,14 @@ const optionYear = function(){
 
   } 
 
+  //________________________________________________________________________________________//
+  
   const optionStatus = function(){
 
     let boxOption = document.getElementById("option_status")
   
     let options = document.createElement("option")
       options.id = "options"
-      
-      let a = document.createElement("div")
-      a.className = "zzzzz"
       
     if(boxOption.style.display === "block"){
   
@@ -102,13 +227,12 @@ const optionYear = function(){
       
     }
   
-    } 
+  } 
 
   //_________________________STATUS_________________________________________________
 
 
-const menuBar = function()  
-{
+const menuBar = function() {
 
   let contentHeader = document.createElement("div");
   contentHeader.id = "menu"
@@ -126,6 +250,7 @@ const menuBar = function()
   menuBarStatus.className = "menu_status"
   menuBarStatus.onclick = function(){
     optionStatus()
+
   }
   menuBarStatus.textContent = "Status"
   boxStatus.appendChild(menuBarStatus)
@@ -172,96 +297,41 @@ const menuBar = function()
   menuBarSubtitle.appendChild(menuBarSubtitleBox2Text)
 }
 
-const studentCardBox = function(){
-
-  let studentBox = document.createElement("div")
-  studentBox.id = "all_students"
-  studentBox.className = "all_students"
-
-  overal_content_list_student.appendChild(studentBox)
-}
-
-const tittleStudentList =  async (subject)=> {
-  
-  let dataSubject = subject
-  
-  var subjectTextTittle  = dataSubject.replace(/[0-9\.]+/,'');
-  console.log(subjectTextTittle)
-
-  let tittleStudent = document.createElement("div");
-  tittleStudent.id = "tittle_list_student"
-  tittleStudent.textContent = subjectTextTittle
-  tittleStudent.className = "tittle_list_student"
-  header.appendChild(tittleStudent ) 
-
-}
-
-const createListStudentsScreen = async ()=>{
-
-  defaultScreen()
-  menuBar()
-  optionBox()
-  yearBox()
-  studentCardBox()
-  
-  
-}
+//________________________________________________________________________________________//
 
 const removeStudentScreen = function(){
 
   content1.removeChild(overal_content_list_student)
   header.removeChild(menu) 
   header.appendChild(tittle_list_student)
+
+  let boxOption = document.getElementById("option_status")
   
-}
-
-
-const cardStudent =  async (subject)=> {
-
-  let dataSubject = subject
-  const listStudentData = await fetchApiDataStudents(dataSubject)  
-
-  listStudentData.students.forEach(element => {
-
-    let studentCardImg = document.createElement("img")
-    studentCardImg.className = "student_card_img"
-    studentCardImg.src = element.foto
-
+  let options = document.createElement("option")
+    options.id = "options"
     
-    let studentCardName = document.createElement("div")
-    studentCardName.className = "student_card_Name"
-    studentCardName.textContent = element.nome
+  if(boxOption.style.display === "block"){
 
-    let studentCard = document.createElement("div")
-    studentCard.id= "student_card_list"
-    studentCard.className = 'student_card_list'
+    boxOption.style.display = "none"
+    option_status.appendChild(options)
+  }
 
-    studentCard.onclick = function(){
+  let boxOption2 = document.getElementById("option_year")
 
-      removeStudentScreen()
-      createStudentInfoScreen()
-      student(element.matricula)
-      
-    }
+  let options2 = document.createElement("option")
+    options2.id = "options"
+    
+  if(boxOption2.style.display === "block"){
 
-    //changes the card color
+    boxOption2.style.display = "none"
+    option_status.appendChild(options2)
 
-     if(element.status == "Cursando"){
-        studentCard.style.backgroundColor = "var(--headerFoter)"
-     }else{
-      studentCard.style.backgroundColor = "var(--menuHeaderSubtitle)"
-     }
-   
-    all_students.appendChild(studentCard)
-
-    studentCard.appendChild(studentCardImg)
-    studentCard.appendChild(studentCardName)
-
-  
-  })
-
+  }
 }
 
-export{createListStudentsScreen, cardStudent,tittleStudentList}
+//________________________________________________________________________________________//
+
+export{ createListStudentsScreen,cardStudent,tittleStudentList, cardStudentStatus }
+
 
 

@@ -43,9 +43,23 @@ const fetchApiDataStudentRegistration = async (registration) =>{
     }
 }
 
-fetchApiDataStudentRegistration('20151001001')
 
 ////fetchApiDataSubject()
+//___________________________GET STUDENT BY STATUS_____________________________
 
 
-export{fetchApiDataSubject,fetchApiDataStudents, fetchApiDataStudentRegistration}
+const fetchApiDataStudentByStatus = async (subject,status) =>{
+    const url = `http://localhost:8080/v1/lion-school/alunos/status/RDS/Cursando`
+
+    const response = await fetch(url)
+    const data = await response.json()
+
+    console.log(data)
+
+    return{
+        student:data
+    }
+}
+
+
+export{fetchApiDataSubject,fetchApiDataStudents, fetchApiDataStudentRegistration,fetchApiDataStudentByStatus}

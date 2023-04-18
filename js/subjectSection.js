@@ -3,7 +3,7 @@
 //alert('a')
 
 import { fetchApiDataSubject } from "./api.js";
-import { cardStudent, createListStudentsScreen,tittleStudentList } from "./studentsList.js";
+import { cardStudent, createListStudentsScreen,tittleStudentList,  } from "./studentsList.js";
 
 fetchApiDataSubject();
 
@@ -50,12 +50,15 @@ const buttonSubject = async () => {
     buttonsSubject.id = element.sigla
     
     
+    let elementSigla = element.sigla
+
     buttonsSubject.onclick = function () {
       
       removeItensInScreen()
       createListStudentsScreen()
       tittleStudentList(element.nome)
       cardStudent(element.sigla)
+      
 
     };
 
@@ -71,7 +74,6 @@ const buttonSubject = async () => {
     buttonSubject.innerText = subjectAcronym
     button_div.appendChild(buttonsSubject);
 
-    
   })
  
 };

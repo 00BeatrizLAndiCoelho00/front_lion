@@ -48,24 +48,7 @@ const studentGraphycInfo = function () {
   studentCard.id = "student_card_graphyc";
   student_graphyc_box.appendChild(studentCard);
 
-  // const contentBars = document.createElement("div");
-  // studentCard.appendChild(contentBars);
-
-  // const bar = document.createElement("progress");
-  // bar.value = data.disciplinas.media;
-  // console.log(data)
-  // bar.max = "100";
-  // contentBars.appendChild(bar);
-
-  // const span = document.createElement("span");
-  // contentBars.appendChild(span);
-
-  // const spanDisciplines = document.createElement("span");
-  // contentBars.appendChild(span);
-  // let graphycContent = document.createElement("div")
-  // graphycContent.className = "graphyc_content"
-  // graphycContent.id = "graphyc_content"
-  // student_card_graphyc.appendChild(graphycContent)
+  
 };
 
 const createStudentInfoScreen = function () {
