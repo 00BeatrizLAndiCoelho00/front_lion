@@ -16,6 +16,27 @@ const defaultScreen = function(){
 
 }
 
+const optionBox = function(){
+
+  let optionsStaus= document.createElement("div");
+  optionsStaus.id = "option_status"
+  optionsStaus.className = "option_status" 
+  optionsStaus.style.display = "none" 
+  header.appendChild(optionsStaus)
+}
+
+const optionStatus = function(){
+
+  let boxOption = document.getElementById("option_status")
+  
+  if(boxOption.style.display === "block"){
+    boxOption.style.display = "none"
+  } else{
+    boxOption.style.display = "block"
+  }
+
+  } 
+
 const menuBar = function()  {
 
   let contentHeader = document.createElement("div");
@@ -23,11 +44,20 @@ const menuBar = function()  {
   contentHeader.className = "menu"
   header.appendChild(contentHeader) 
 
+  //status
   let menuBarStatus = document.createElement("div")
   menuBarStatus.id = "menu_status"
   menuBarStatus.className = "menu_status"
+  menuBarStatus.onclick = function(){
+    optionStatus()
+  }
+  menuBarStatus.textContent = "Status"
   contentHeader.appendChild(menuBarStatus)
 
+//status box
+  
+
+  //tittle
   let menuBarSubtitle = document.createElement("div")
   menuBarSubtitle.id = "menu_tittle"
   menuBarSubtitle.className = "menu_tittle"
@@ -61,6 +91,7 @@ const studentCardBox = function(){
   let studentBox = document.createElement("div")
   studentBox.id = "all_students"
   studentBox.className = "all_students"
+
   overal_content_list_student.appendChild(studentBox)
 }
 
@@ -83,7 +114,9 @@ const createListStudentsScreen = async ()=>{
 
   defaultScreen()
   menuBar()
+  optionBox()
   studentCardBox()
+  
   
 }
 

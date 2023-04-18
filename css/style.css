@@ -5,7 +5,7 @@
     --shadow: #292929;
     --menuHeader: #bcc2e5;
     --menuHeaderSubtitle: #e5b657;
-    --shadow:#0A1D7A;
+    --shadowText:#0A1D7A;
 }
 *,*::after,*::before{
     margin: 0;
