@@ -4,95 +4,41 @@
   min-height: 50px;
   background-color: var(--menuHeader);
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+
+
+}
+.menu_status{
+
+  margin-left: 2vw;
+  background-color: rgb(255, 0, 0);
+  width: 22%;
+  height: 90%;
+
 }
 
-.menu_left {
-  display: flex;
-  height: 60%;
-  min-height: 50px;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-}
+.menu_tittle{
 
-/* menu - STATUS */
-.select__status {
-  display: flex;
-  align-items: center;
-  justify-self: center;
-}
-
-select {
-  display: flex;
-  font-size: 16px;
-  align-items: center;
-  background-color: unset;
+  margin-right: 2vw;
   color: var(--headerFoter);
-  border: none;
-  outline: none;
-  overflow: hidden;
-  appearance: none;
-  padding: 0.7rem 1rem 1rem 1rem;
-}
-
-option {
-  background-color: var(--headerFoter);
-  color: var(--backgorundColor);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* menu - YEAR */
-.menu-year {
-  display: flex;
-  height: 30px;
-  background-color: var(--menuHeader);
-  justify-content: center;
-  align-items: center;
-}
-
-/* menu RIGHT */
-.menu-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: var(--headerFoter);
-  font-size: 16px;
-  width: 25%;
-}
-.subtitle__menu {
-  width: 28%;
-  display: flex;
-  justify-content: end;
+  border-radius: 5px;
   font-weight: 500;
-}
-.div__cursando {
+  width: 22%;
+  height: 90%;
   display: flex;
-  gap: 10px;
+  gap: 1.5vh;
+  align-items: center;
+  justify-content: center;
+  
 }
 
-.square__yellow {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-color: var(--menuHeaderSubtitle);
-}
-
-.subtitle__menu {
-  text-transform: uppercase;
-}
-.div__finalizado {
-  display: flex;
-  gap: 10px;
-}
-.square__blue {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-color: var(--headerFoter);
+.box_menu_tittle{
+  min-height: 20px;
+  min-height: 20px;
+  width: 3vh;
+  height: 3vh;
+  background-color: aliceblue;
+  box-shadow: 1px 6px 6px #3348b03f;
 }
 
 .tittle_list_student{
@@ -107,13 +53,13 @@ html {
   font-weight: 600;
   margin-top: 2.5vh;
 
+
 }
 .overal_content_list_student {
 
-
   width: 100%;
   height: fit-content;
-  min-height: 78vh;
+  min-height: 58vh;
   display: flex;
   justify-content: center;
  
@@ -130,6 +76,7 @@ html {
   flex-wrap: wrap;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 60px;
+
 }
 #student_card_list {
   display: flex;
@@ -142,12 +89,12 @@ html {
   color: var(--backgorundColor);
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 15px 12px 12px #3348b03f;
 
 }
 
 #all_students :hover {
-  
-  background-color: var(--shadow);
+
   transition: all 0.3s;
   color: var(--popColor);
 

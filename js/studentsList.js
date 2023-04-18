@@ -23,6 +23,37 @@ const menuBar = function()  {
   contentHeader.className = "menu"
   header.appendChild(contentHeader) 
 
+  let menuBarStatus = document.createElement("div")
+  menuBarStatus.id = "menu_status"
+  menuBarStatus.className = "menu_status"
+  contentHeader.appendChild(menuBarStatus)
+
+  let menuBarSubtitle = document.createElement("div")
+  menuBarSubtitle.id = "menu_tittle"
+  menuBarSubtitle.className = "menu_tittle"
+  contentHeader.appendChild(menuBarSubtitle)
+
+  let menuBarSubtitleTittleText = document.createElement("p")
+  menuBarSubtitleTittleText.textContent = "LEGENDA"
+  menuBarSubtitle.appendChild(menuBarSubtitleTittleText)
+
+  let menuBarSubtitleBox1 = document.createElement("div")
+  menuBarSubtitleBox1.className = "box_menu_tittle"
+  menuBarSubtitleBox1.style.backgroundColor = "var(--headerFoter)"
+  menuBarSubtitle.appendChild(menuBarSubtitleBox1)
+
+  let menuBarSubtitleBox1Text = document.createElement("p")
+  menuBarSubtitleBox1Text.textContent = "Cursando"
+  menuBarSubtitle.appendChild(menuBarSubtitleBox1Text)
+
+  let menuBarSubtitleBox2 = document.createElement("div")
+  menuBarSubtitleBox2.className = "box_menu_tittle"
+  menuBarSubtitleBox2.style.backgroundColor = "var(--menuHeaderSubtitle)"
+  menuBarSubtitle.appendChild(menuBarSubtitleBox2)
+
+  let menuBarSubtitleBox2Text = document.createElement("p")
+  menuBarSubtitleBox2Text.textContent = "Finalizado"
+  menuBarSubtitle.appendChild(menuBarSubtitleBox2Text)
 }
 
 const studentCardBox = function(){
@@ -60,7 +91,8 @@ const removeStudentScreen = function(){
 
   content1.removeChild(overal_content_list_student)
   header.removeChild(menu) 
-
+  header.appendChild(tittle_list_student)
+  
 }
 
 
@@ -92,6 +124,14 @@ const cardStudent =  async (subject)=> {
       
     }
 
+    //changes the card color
+
+     if(element.status == "Cursando"){
+        studentCard.style.backgroundColor = "var(--headerFoter)"
+     }else{
+      studentCard.style.backgroundColor = "var(--menuHeaderSubtitle)"
+     }
+   
     all_students.appendChild(studentCard)
 
     studentCard.appendChild(studentCardImg)
