@@ -3,7 +3,7 @@
 //alert('works')
 
 
-import { fetchApiDataStudents } from "./api.js";
+import { fetchApiDataStudentByStatus, fetchApiDataStudents } from "./api.js";
 import { createStudentInfoScreen, student } from "./studentInfo.js";
 
 //________________________________________________________________________________________//
@@ -18,6 +18,20 @@ const defaultScreen = function(){
 
 }
 
+const studentStatusScreen = function(){
+
+  let screenListStudent = document.createElement("div")
+  screenListStudent.id = "overal_content_list_student_status"
+  screenListStudent.className = "overal_content_list_student"
+  content1.appendChild(screenListStudent)
+
+  let studentBoxStatus = document.createElement("div")
+  studentBoxStatus.id = "all_students_status"
+  studentBoxStatus.className = "all_students"
+
+  overal_content_list_student_status.appendChild(studentBoxStatus)
+
+}
 //________________________________________________________________________________________//
 
 const studentCardBox = function(){
@@ -27,6 +41,7 @@ const studentCardBox = function(){
   studentBox.className = "all_students"
 
   overal_content_list_student.appendChild(studentBox)
+  
 }
 //________________________________________________________________________________________//
 
@@ -49,6 +64,7 @@ const tittleStudentList =  async (subject)=> {
 const createListStudentsScreen = async ()=>{
 
   defaultScreen()
+  studentStatusScreen()
   menuBar()
   optionBox()
   yearBox()
@@ -58,9 +74,10 @@ const createListStudentsScreen = async ()=>{
 
 //________________________________________________________________________________________//
 
-const cardStudent =  async (subject)=> {
+const cardStudent =  async (status)=> {
 
-  let dataSubject = subject
+  let dataSubject = status
+  
   const listStudentData = await fetchApiDataStudents(dataSubject)  
 
   listStudentData.students.forEach(element => {
@@ -100,11 +117,7 @@ const cardStudent =  async (subject)=> {
 
   })
 
-
-
 }
-
-
 
 //________________________________________________________________________________________//
 
@@ -121,13 +134,54 @@ const removeListStudents = function(){
 //________________________________________________________________________________________//
 
 
-const cardStudentStatus = async () =>{
+const cardStudentStatus = async (status) =>{
 
-
-
+  console.log(status)
+  let desirableStatus = status
  
-}
+  const listStudentData = await fetchApiDataStudentByStatus(desirableStatus)  
 
+  console.log(listStudentData)
+
+  listStudentData.student.forEach(element => {
+
+    let studentCardImg = document.createElement("img")
+    studentCardImg.className = "student_card_img"
+    studentCardImg.src = element.foto
+
+    
+    let studentCardName = document.createElement("div")
+    studentCardName.className = "student_card_Name"
+    studentCardName.textContent = element.nome
+
+    let studentCard = document.createElement("div")
+    studentCard.id= "student_card_list"
+    studentCard.className = 'student_card_list'
+
+    studentCard.onclick = function(){
+
+      removeStudentScreen()
+      createStudentInfoScreen()
+      student(element.matricula)
+      
+    }
+
+    if(element.status == "Cursando"){
+      studentCard.style.backgroundColor = "var(--headerFoter)"
+   }else{
+    studentCard.style.backgroundColor = "var(--menuHeaderSubtitle)"
+   }
+  
+     
+   all_students_status.appendChild(studentCard)
+
+    studentCard.appendChild(studentCardImg)
+    studentCard.appendChild(studentCardName)
+
+  })
+  
+
+}
 
 
 const optionBox = function(){
@@ -150,8 +204,9 @@ const optionBox = function(){
 
       //removes the screen
       removeListStudents()
-      cardStudentStatus()
-      
+      if(element != "Status"){
+        cardStudentStatus(element)
+      }
       
     }
 
