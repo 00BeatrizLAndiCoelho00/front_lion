@@ -67,11 +67,18 @@
 
 }
 
+.box_status{
+
+  width:30%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 .option_status{
 
   position: absolute;
   margin-top: -3.3vh;
-  margin-left: 140px;
+  margin-left: 190px;
   width: 20vh;
   height: 15vh;
   max-height: fit-content;
@@ -79,7 +86,19 @@
   border-radius: 3px;
   color: var(--popColor);
  
-  
+}
+
+.option_status_year{
+
+  position: absolute;
+  margin-top: -3.3vh;
+  margin-left: 500px;
+  width: 20vh;
+
+  height: 15vh;
+  background-color: var(--headerFoter);
+  border-radius: 3px;
+  color: var(--popColor);
 }
 
 .option_element_status{
@@ -91,6 +110,7 @@
   border: none;
   font-size: 18px;
 }
+
 
 .option_element_status:hover{
   background-color: var(--shadowText);

@@ -37,15 +37,34 @@ const optionBox = function(){
   });
 }
 
-const optionStatus = function(){
+const yearBox = function(){
 
-  let boxOption = document.getElementById("option_status")
+  let optionsYear= document.createElement("div");
+  optionsYear.id = "option_year"
+  optionsYear.className = "option_status_year" 
+  optionsYear.style.display = "none" 
+  header.appendChild(optionsYear)
+
+  let options = ["Ano", "2021", "2022", "2023"]
+
+  options.forEach(element => {
+
+    let option = document.createElement("button")
+    option.textContent = element
+    option.className = "option_element_status"
+    optionsYear.appendChild(option)
+
+  });
+
+}
+
+
+const optionYear = function(){
+
+  let boxOption = document.getElementById("option_year")
 
   let options = document.createElement("option")
     options.id = "options"
-    
-    let a = document.createElement("div")
-    a.className = "zzzzz"
     
   if(boxOption.style.display === "block"){
 
@@ -61,6 +80,30 @@ const optionStatus = function(){
 
   } 
 
+  const optionStatus = function(){
+
+    let boxOption = document.getElementById("option_status")
+  
+    let options = document.createElement("option")
+      options.id = "options"
+      
+      let a = document.createElement("div")
+      a.className = "zzzzz"
+      
+    if(boxOption.style.display === "block"){
+  
+      boxOption.style.display = "none"
+      option_status.appendChild(options)
+     
+    } else if(boxOption.style.display = "none" && option_status.appendChild(options) ){
+  
+      boxOption.style.display = "block" 
+      option_status.removeChild(options)
+      
+    }
+  
+    } 
+
   //_________________________STATUS_________________________________________________
 
 
@@ -72,6 +115,11 @@ const menuBar = function()
   contentHeader.className = "menu"
   header.appendChild(contentHeader) 
 
+  let boxStatus = document.createElement("div")
+  boxStatus.id = "box_status"
+  boxStatus.className = "box_status"
+  contentHeader.appendChild(boxStatus)
+  
   //status
   let menuBarStatus = document.createElement("div")
   menuBarStatus.id = "menu_status"
@@ -80,11 +128,20 @@ const menuBar = function()
     optionStatus()
   }
   menuBarStatus.textContent = "Status"
-  contentHeader.appendChild(menuBarStatus)
+  boxStatus.appendChild(menuBarStatus)
 
-//
+
   //year
-  
+
+  let menuYearStatus = document.createElement("div")
+  menuYearStatus.id = "menu_status"
+  menuYearStatus.className = "menu_status"
+  menuYearStatus.onclick = function(){
+    optionYear()
+  }
+  menuYearStatus.textContent = "Ano"
+  boxStatus.appendChild(menuYearStatus)
+
 
   //tittle
   let menuBarSubtitle = document.createElement("div")
@@ -144,6 +201,7 @@ const createListStudentsScreen = async ()=>{
   defaultScreen()
   menuBar()
   optionBox()
+  yearBox()
   studentCardBox()
   
   
