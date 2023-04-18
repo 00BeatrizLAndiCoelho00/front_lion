@@ -69,14 +69,31 @@
 
 .option_status{
 
-  /* display: block; */
   position: absolute;
   margin-top: -3.3vh;
   margin-left: 140px;
   width: 20vh;
-  height: 20vh;
-  background-color: yellowgreen;
+  height: 15vh;
+  max-height: fit-content;
+  background-color: var(--headerFoter);
   border-radius: 3px;
+  color: var(--popColor);
+ 
+  
+}
+
+.option_element_status{
+
+  background-color: transparent;
+  color: var(--popColor);
+  width: 100%;
+  height: 33%;
+  border: none;
+  font-size: 18px;
+}
+
+.option_element_status:hover{
+  background-color: var(--shadowText);
 }
 .overal_content_list_student {
 

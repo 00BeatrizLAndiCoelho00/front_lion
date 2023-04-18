@@ -16,6 +16,7 @@ const defaultScreen = function(){
 
 }
 
+//___________________________option _________________
 const optionBox = function(){
 
   let optionsStaus= document.createElement("div");
@@ -23,21 +24,48 @@ const optionBox = function(){
   optionsStaus.className = "option_status" 
   optionsStaus.style.display = "none" 
   header.appendChild(optionsStaus)
+
+  let options = ["Status","Cursando", "Finalizado"]
+
+  options.forEach(element => {
+
+    let option = document.createElement("button")
+    option.textContent = element
+    option.className = "option_element_status"
+    option_status.appendChild(option)
+
+  });
 }
 
 const optionStatus = function(){
 
   let boxOption = document.getElementById("option_status")
-  
+
+  let options = document.createElement("option")
+    options.id = "options"
+    
+    let a = document.createElement("div")
+    a.className = "zzzzz"
+    
   if(boxOption.style.display === "block"){
+
     boxOption.style.display = "none"
-  } else{
-    boxOption.style.display = "block"
+    option_status.appendChild(options)
+   
+  } else if(boxOption.style.display = "none" && option_status.appendChild(options) ){
+
+    boxOption.style.display = "block" 
+    option_status.removeChild(options)
+    
   }
 
   } 
 
-const menuBar = function()  {
+  //_________________________STATUS_________________________________________________
+
+
+const menuBar = function()  
+{
 
   let contentHeader = document.createElement("div");
   contentHeader.id = "menu"
@@ -54,7 +82,8 @@ const menuBar = function()  {
   menuBarStatus.textContent = "Status"
   contentHeader.appendChild(menuBarStatus)
 
-//status box
+//
+  //year
   
 
   //tittle
