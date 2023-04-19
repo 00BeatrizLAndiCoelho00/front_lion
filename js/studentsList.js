@@ -48,8 +48,11 @@ const studentCardBox = function(){
 const tittleStudentList =  async (subject)=> {
   
   let dataSubject = subject
+
+  const regex = /[0-9\.-]+/
+  const simbol = /-/
   
-  var subjectTextTittle  = dataSubject.replace(/[0-9\.]+/,'');
+  var subjectTextTittle  = dataSubject.replace(regex,'').replace(simbol, '');
 
   let tittleStudent = document.createElement("div");
   tittleStudent.id = "tittle_list_student"
@@ -72,12 +75,29 @@ const createListStudentsScreen = async ()=>{
   
 }
 
+
 //________________________________________________________________________________________//
 
-const cardStudent =  async (status)=> {
+const removeListStudents = function(){
 
-  let dataSubject = status
-  
+  let screenListStudents = document.getElementById("overal_content_list_student")
+
+  //let screenlistStudentStatus = screenListStudent.id = "overal_content_list_student_status"
+
+  if( screenListStudents  != null  ){
+
+    content1.removeChild(overal_content_list_student)
+  }
+ 
+
+}
+
+//________________________________________________________________________________________//
+
+const defaultCardStudent = async(status)=>{
+
+   let dataSubject = status
+
   const listStudentData = await fetchApiDataStudents(dataSubject)  
 
   listStudentData.students.forEach(element => {
@@ -97,7 +117,7 @@ const cardStudent =  async (status)=> {
 
     studentCard.onclick = function(){
 
-      removeStudentScreen()
+      removeStudentScreen().then
       createStudentInfoScreen()
       student(element.matricula)
       
@@ -118,21 +138,6 @@ const cardStudent =  async (status)=> {
   })
 
 }
-
-//________________________________________________________________________________________//
-
-const removeListStudents = function(){
-
-  let screenListStudents = document.getElementById("overal_content_list_student")
-
-  if( screenListStudents  != null ){
-    content1.removeChild(overal_content_list_student)
-  }
-
-}
-
-//________________________________________________________________________________________//
-
 
 const cardStudentStatus = async (status) =>{
 
@@ -182,6 +187,20 @@ const cardStudentStatus = async (status) =>{
   
 
 }
+
+//______________________________________________________________________________________________________
+const cardStudent =  async (status)=> {
+
+  let dataSubject = status
+
+  defaultCardStudent(dataSubject)
+
+
+}
+
+//________________________________________________________________________________________//
+
+
 
 
 const optionBox = function(){

@@ -8,7 +8,7 @@
 
 .student_card_info {
   width: 50%;
-  min-height: 66vh;
+   min-height: 66vh; 
   align-items: center;
   justify-content: center;
   display: flex;

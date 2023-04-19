@@ -115,12 +115,10 @@
   background-color: var(--shadowText);
 }
 .overal_content_list_student {
-
-  width: 100%;
+   width: 100%;
   height: fit-content;
-  min-height: 58vh;
   display: flex;
-  justify-content: center;
+  justify-content: center; 
  
 }
 
