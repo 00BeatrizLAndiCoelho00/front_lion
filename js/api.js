@@ -61,5 +61,24 @@ const fetchApiDataStudentByStatus = async (subejcs,status) =>{
     }
 }
 
-//console.log(fetchApiDataStudentByStatus("DS","Cursando"))
+//_______________________________GET STUDENT BY YEAR__________________________________________________________
+
+const fetchApiDataStudentByYear = async (subejcs,year) =>{
+
+    const url = `http://localhost:8080/v1/lion-school/cursos/ano/${subejcs}/${year}`
+
+    const response = await fetch(url)
+    const data = await response.json()
+
+    console.log(data)
+
+    return{
+        student:data
+    }
+}
+
+
+//console.log(fetchApiDataStudentByYear("RDS","2021"))
+
+
 export{fetchApiDataSubject,fetchApiDataStudents, fetchApiDataStudentRegistration,fetchApiDataStudentByStatus}
