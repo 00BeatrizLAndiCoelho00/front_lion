@@ -89,7 +89,6 @@ const removeListStudents = function(){
     content1.removeChild(overal_content_list_student)
   }
  
-
 }
 
 //________________________________________________________________________________________//
@@ -117,7 +116,7 @@ const defaultCardStudent = async(status)=>{
 
     studentCard.onclick = function(){
 
-      removeStudentScreen().then
+      removeStudentScreen()
       createStudentInfoScreen()
       student(element.matricula)
       
@@ -199,9 +198,6 @@ const cardStudent =  async (status)=> {
 }
 
 //________________________________________________________________________________________//
-
-
-
 
 const optionBox = function(){
 

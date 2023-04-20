@@ -16,13 +16,33 @@
 
 #student_graphyc_box {
   width: 50%;
-  height: 66vh;
-  justify-content: center;
+  height: 66vh; 
   align-items: center;
-  display: flex;
   justify-content: center;
+  display: flex;
+
+}
+
+#student_card_graphyc{
+
+  align-items: center;
+  justify-content: center;
+  
+}
+.student_card_graphyc_content{
+
+  height: 50%;
+  width: 90%;
+  display: flex;
   align-items: center;
 }
+.progress_bar{
+
+  transform: rotate(-90deg);
+  
+}
+
+
 
 .student_card {
   width: 60%;
@@ -53,14 +73,6 @@
   color: var(--headerFoter);
 }
 
-.graphyc_content{
-    width: 90%;
-    height: 90%;
-    background-color: aquamarine;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 
 

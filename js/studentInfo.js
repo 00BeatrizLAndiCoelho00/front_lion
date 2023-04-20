@@ -48,6 +48,11 @@ const studentGraphycInfo = function () {
   studentCard.id = "student_card_graphyc";
   student_graphyc_box.appendChild(studentCard);
 
+  let studentCardContent = document.createElement("div");
+  studentCardContent.className = "student_card_graphyc_content";
+  studentCardContent.id = "student_card_graphyc_content";
+  student_card_graphyc.appendChild(studentCardContent);
+
   
 };
 
@@ -58,10 +63,11 @@ const createStudentInfoScreen = function () {
 };
 
 // //Student card
-//
 
-const student = async (registration) => {
+const studentCardMaker = async (registration) => {
+
   let dataStudent = registration;
+
   const studentData = await fetchApiDataStudentRegistration(dataStudent);
 
   studentData.student.map((element) => {
@@ -77,7 +83,46 @@ const student = async (registration) => {
     student_card_name.appendChild(studentName);
   });
 
-  //console.log(studentData.student[0].curso[0].disciplinas)
+
+}
+
+const createBars = function(data){
+
+  let mediaData = data
+  let bar = document.createElement("progress");
+  bar.classList = "progress_bar"
+  bar.value =  mediaData;
+  bar.max = "100";
+  student_card_graphyc_content.appendChild(bar)
+
+}
+
+const studentGraphycMaker = async (registration) => {
+
+  let dataStudent = registration;
+
+  const studentData = await fetchApiDataStudentRegistration(dataStudent);
+
+  let  dataDiciplinas = studentData.student[0].curso[0].disciplinas
+
+
+  dataDiciplinas.forEach( element => {
+    
+   let mediaData = element.media
+
+   createBars(mediaData)
+
+  });
+
+
+}
+
+const student = async (registration) => {
+
+  let dataStudent = registration;
+ 
+  studentCardMaker(dataStudent)
+  studentGraphycMaker(dataStudent)
 };
 
 // //_________________________________________________________________________________________
