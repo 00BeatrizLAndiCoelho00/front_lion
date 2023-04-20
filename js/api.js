@@ -48,8 +48,8 @@ const fetchApiDataStudentRegistration = async (registration) =>{
 //___________________________GET STUDENT BY STATUS_____________________________
 
 
-const fetchApiDataStudentByStatus = async (status) =>{
-    const url = `http://localhost:8080/v1/lion-school/alunos/status/DS/${status}`
+const fetchApiDataStudentByStatus = async (subejcs,status) =>{
+    const url = `http://localhost:8080/v1/lion-school/alunos/status/${subejcs}/${status}`
 
     const response = await fetch(url)
     const data = await response.json()
@@ -61,5 +61,5 @@ const fetchApiDataStudentByStatus = async (status) =>{
     }
 }
 
-
+//console.log(fetchApiDataStudentByStatus("DS","Cursando"))
 export{fetchApiDataSubject,fetchApiDataStudents, fetchApiDataStudentRegistration,fetchApiDataStudentByStatus}

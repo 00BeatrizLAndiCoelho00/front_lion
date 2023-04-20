@@ -71,7 +71,6 @@ const createListStudentsScreen = async ()=>{
   defaultScreen()
   studentStatusScreen()
   menuBar()
-  optionBox()
   yearBox()
   studentCardBox()
   
@@ -140,12 +139,12 @@ const defaultCardStudent = async(status)=>{
 
 }
 
-const cardStudentStatus = async (status) =>{
+const cardStudentStatus = async (dataSubject, status) =>{
 
-  console.log(status)
+  let desirableSubject = dataSubject
   let desirableStatus = status
  
-  const listStudentData = await fetchApiDataStudentByStatus(desirableStatus)  
+  const listStudentData = await fetchApiDataStudentByStatus(desirableSubject,desirableStatus)  
 
   console.log(listStudentData)
 
@@ -196,12 +195,15 @@ const cardStudent =  async (status)=> {
 
   defaultCardStudent(dataSubject)
 
+  optionBox(dataSubject)
+
 
 }
-
 //________________________________________________________________________________________//
 
-const optionBox = function(){
+const optionBox = function(dataSubject){
+
+  let subjectData = dataSubject 
 
   let optionsStaus= document.createElement("div");
   optionsStaus.id = "option_status"
@@ -222,7 +224,7 @@ const optionBox = function(){
       //removes the screen
       removeListStudents()
       if(element != "Status"){
-        cardStudentStatus(element)
+        cardStudentStatus(subjectData , element)
       }
       
     }
@@ -371,15 +373,8 @@ const menuBar = function() {
 
 //________________________________________________________________________________________//
 
-const removeStudentScreen = function(){
 
-  content1.removeChild(overal_content_list_student)
-  header.removeChild(menu) 
-  header.removeChild(tittle_list_student)
-
-  if (content1.appendChild(overal_content_list_student_status)){
-    content1.removeChild(overal_content_list_student_status)
-  }
+const removeBoxOptions = function(){
 
   let boxOption = document.getElementById("option_status")
   
@@ -403,6 +398,21 @@ const removeStudentScreen = function(){
     option_status.appendChild(options2)
 
   }
+
+}
+//___________________________________________________________________________________//
+const removeStudentScreen = function(){
+
+  content1.removeChild(overal_content_list_student)
+  header.removeChild(menu) 
+  header.removeChild(tittle_list_student)
+
+  if (content1.appendChild(overal_content_list_student_status)){
+     content1.removeChild(overal_content_list_student_status)
+  }
+
+  removeBoxOptions()
+ 
 }
 
 //________________________________________________________________________________________//
