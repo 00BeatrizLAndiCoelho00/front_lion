@@ -246,7 +246,7 @@ const yearBox = function(){
   optionsYear.style.display = "none" 
   header.appendChild(optionsYear)
 
-  let options = ["Ano", "2021", "2022", "2023"]
+  let options = ["Ano", "2021", "2022", "2023", "2024"]
 
   options.forEach(element => {
 

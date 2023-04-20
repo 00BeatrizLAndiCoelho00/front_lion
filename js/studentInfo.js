@@ -89,12 +89,21 @@ const studentCardMaker = async (registration) => {
 const createBars = function(data){
 
   let mediaData = data
+
   let bar = document.createElement("progress");
   bar.classList = "progress_bar"
   bar.value =  mediaData;
   bar.max = "100";
   student_card_graphyc_content.appendChild(bar)
 
+  // let p = document.createElement("span");
+  // p.textContent = mediaData
+  // student_card_graphyc_content.appendChild(p)
+
+  // let diciplinaName = document.createElement("span");
+  // diciplinaName.textContent = mediaData
+  // student_card_graphyc_content.appendChild(diciplinaName)
+  
 }
 
 const studentGraphycMaker = async (registration) => {
@@ -104,6 +113,11 @@ const studentGraphycMaker = async (registration) => {
   const studentData = await fetchApiDataStudentRegistration(dataStudent);
 
   let  dataDiciplinas = studentData.student[0].curso[0].disciplinas
+
+
+ // let dataDiciplinaName = studentData.student[0].curso[0].disciplinas.nome
+
+ // console.log(dataDiciplinaName)
 
   dataDiciplinas.forEach( element => {
     
