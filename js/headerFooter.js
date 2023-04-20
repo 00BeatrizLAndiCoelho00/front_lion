@@ -8,20 +8,28 @@ const pageBack =  () =>  {
   history.back()
 }
 
-//Creater Header
 
- const createHeader = function(){
+//RIGTH SIDE 
+const baseHeader = function(){
 
-    //this part creates the base of the header
-    let contentHeader = document.createElement("div");
-    contentHeader.id = "heather_content"
-    contentHeader.className = "heather_content"
-    header.appendChild(contentHeader) 
+   //this part creates the base of the header
+   let contentHeader = document.createElement("div");
+   contentHeader.id = "heather_content"
+   contentHeader.className = "heather_content"
+   header.appendChild(contentHeader) 
 
-    //this one is responsable for the contents and another divs inside it
-    let contentHeaderrLeft = document.createElement("div");
-    contentHeaderrLeft.id = "left_header"
-    heather_content.appendChild(contentHeaderrLeft) 
+}
+
+ const divsHeader = function(){
+
+  //this one is responsable for the contents and another divs inside it
+  let contentHeaderrLeft = document.createElement("div");
+  contentHeaderrLeft.id = "left_header"
+  heather_content.appendChild(contentHeaderrLeft) 
+
+ } 
+
+ const logoHeader = function(){
 
     // image of header left
     var logoSite = document.createElement("img")
@@ -30,6 +38,7 @@ const pageBack =  () =>  {
     logoSite.type = 'image/webp'
     document.getElementById("left_header").appendChild(logoSite)
 
+    
     //text of header left
     var p = document.createElement("p");
     var output = document.getElementById('left_header');
@@ -38,24 +47,34 @@ const pageBack =  () =>  {
     p.appendChild(document.createTextNode("School"));
     output.appendChild(p);
 
-    //left header
-    let leftHeader = document.createElement("div");
+ }
+//Creater Header
 
-    // contentFooterRight.textContent = "Sair"
+//LEFT SIDE 
+
+const sairHeader = function(){
+
+    let leftHeader = document.createElement("div");
     leftHeader.id = "rigth_header"
     heather_content.appendChild(leftHeader)
 
-    // button header rigth
-    let buttonHeaderRIgth = document.createElement("button");
+}
+
+const buttonHeader = function(){
+
+   let buttonHeaderRIgth = document.createElement("button");
     buttonHeaderRIgth.setAttribute('aria-label', 'slide-dot')
     buttonHeaderRIgth.id = "button_exit"
 
+}
 
-    rigth_header.appendChild(buttonHeaderRIgth)
-    rigth_header.appendChild(document.createTextNode("sair"));
+ const createHeader = function(){
 
-    //makes the button work
-    buttonHeaderRIgth.addEventListener('click', pageBack)
+   baseHeader()
+   divsHeader()
+   logoHeader()
+   sairHeader()
+   buttonHeader()
 
 }
 
