@@ -78,34 +78,46 @@ const buttonHeader = function(){
 
 }
 
+//_______________________________________________________________________________________________________//
 
+/*                            FOOTER                                                                     */
 
-//creates the footer
-const createFooter = function(){
+const baseFooter = function(){
 
     let contentFooter = document.createElement("div");
     contentFooter.id = "footer_content"
     contentFooter.className = "footer_content"
     footer.appendChild(contentFooter) 
 
-    //the left
+}
+
+const leftFooter = function(){
+
+  //the left
     let contentFooterLeft = document.createElement("div");
     contentFooterLeft.className = "footer_content_left"
     contentFooterLeft.id = "footer_content_left"
     footer_content.appendChild(contentFooterLeft) 
 
-    //left content
-    let contentFooterLeftPhone = document.createElement("div");
-    let contentFooterImagePhone = document.createElement("img")
-    contentFooterImagePhone.src = "img/phone-icon.png"
-    contentFooterImagePhone.alt = "Icon phone";
-    contentFooterImagePhone.className = "imageIcon"
-    let contentFooterTextPhone = document.createElement("p")
-    contentFooterTextPhone.textContent = "(11) 4774-4700"
-    contentFooterLeftPhone.appendChild(contentFooterImagePhone)
-    contentFooterLeftPhone.appendChild(contentFooterTextPhone)
-    contentFooterLeftPhone.className = "footer_content_left_content"
-    footer_content_left.appendChild(contentFooterLeftPhone) 
+}
+
+const contactPhone = function(){
+
+  let contentFooterLeftPhone = document.createElement("div");
+  let contentFooterImagePhone = document.createElement("img")
+  contentFooterImagePhone.src = "img/phone-icon.png"
+  contentFooterImagePhone.alt = "Icon phone";
+  contentFooterImagePhone.className = "imageIcon"
+  let contentFooterTextPhone = document.createElement("p")
+  contentFooterTextPhone.textContent = "(11) 4774-4700"
+  contentFooterLeftPhone.appendChild(contentFooterImagePhone)
+  contentFooterLeftPhone.appendChild(contentFooterTextPhone)
+  contentFooterLeftPhone.className = "footer_content_left_content"
+  footer_content_left.appendChild(contentFooterLeftPhone) 
+
+}
+
+const contactEmail = function(){
 
     let contentFooterLeftEmail = document.createElement("div");
     let contentFooterImageEmail = document.createElement("img")
@@ -117,7 +129,11 @@ const createFooter = function(){
     contentFooterLeftEmail.appendChild(contentFooterImageEmail)
     contentFooterLeftEmail.appendChild(contentFooterTextEmail)
     contentFooterLeftEmail.className = "footer_content_left_content"
-    footer_content_left.appendChild(contentFooterLeftEmail) 
+    footer_content_left.appendChild(contentFooterLeftEmail)
+
+}
+
+const contactAdress = function(){
 
     let contentFooterLeftAdress = document.createElement("div");
     let contentFooterImageAdress = document.createElement("img")
@@ -131,17 +147,26 @@ const createFooter = function(){
     contentFooterLeftAdress.className = "footer_content_left_content"
     footer_content_left.appendChild(contentFooterLeftAdress) 
 
+}
+
+const cophyRIgth = function(){
+
     //the center
     let contentFooterCenter = document.createElement("div");
     contentFooterCenter.textContent = "Copyright © 2022 | Layla Giovanna | A. Beatriz Landi"
     contentFooterCenter.className = "footer_content_center"
     footer_content.appendChild(contentFooterCenter) 
+}
 
-    //the rigth
+const boxIcons = function(){
+
     let contentFooterRight = document.createElement("div");
     contentFooterRight.className = "footer_content_rigth"
     contentFooterRight.id = "footer_content_rigth"
     footer_content.appendChild(contentFooterRight) 
+}
+
+const icons = function(){
 
     //link youtube
     var link=document.createElement("a");
@@ -186,9 +211,20 @@ const createFooter = function(){
     link.target = "_blank"
     link.onclick = 'loadScript()';
     footer_content_rigth.appendChild(link);
- 
-}
-//createFooter()
 
+}
+//creates the footer
+const createFooter = function(){
+
+    baseFooter()
+    leftFooter()
+    contactPhone()
+    contactEmail()
+    contactAdress()
+    cophyRIgth()
+    boxIcons()
+    icons()
+
+}
 
 export{createHeader, createFooter}
