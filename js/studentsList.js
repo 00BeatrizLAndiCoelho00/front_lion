@@ -8,7 +8,6 @@ import { createStudentInfoScreen, student } from "./studentInfo.js";
 
 //________________________________________________________________________________________//
 
-
 const defaultScreen = function(){
 
   let screenListStudent = document.createElement("div")
@@ -17,6 +16,8 @@ const defaultScreen = function(){
   content1.appendChild(screenListStudent)
 
 }
+
+//________________________________________________________________________________________//
 
 const studentStatusScreen = function(){
 
@@ -32,6 +33,7 @@ const studentStatusScreen = function(){
   overal_content_list_student_status.appendChild(studentBoxStatus)
 
 }
+
 //________________________________________________________________________________________//
 
 const studentCardBox = function(){
@@ -58,7 +60,7 @@ const tittleStudentList =  async (subject)=> {
   tittleStudent.id = "tittle_list_student"
   tittleStudent.textContent = subjectTextTittle
   tittleStudent.className = "tittle_list_student"
-  header.appendChild(tittleStudent ) 
+  header.appendChild(tittleStudent) 
 
 }
 
@@ -373,7 +375,11 @@ const removeStudentScreen = function(){
 
   content1.removeChild(overal_content_list_student)
   header.removeChild(menu) 
-  header.appendChild(tittle_list_student)
+  header.removeChild(tittle_list_student)
+
+  if (content1.appendChild(overal_content_list_student_status)){
+    content1.removeChild(overal_content_list_student_status)
+  }
 
   let boxOption = document.getElementById("option_status")
   

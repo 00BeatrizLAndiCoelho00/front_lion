@@ -69,7 +69,6 @@
 
 .button_div {
   display: grid;
-  /* padding-left: 200px; */
   padding: 20px;
   gap: 40px;
   font-size: 64px;
@@ -106,7 +105,7 @@
 }
 
 .button_subject:hover{
-  background-color: var(--shadow);
+  background-color: var(--shadowText);
   transition: all 0.5s;
 }
 

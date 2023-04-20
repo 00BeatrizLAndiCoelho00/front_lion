@@ -12,6 +12,8 @@ const removeItensInScreen = function() {
 
 };
 
+//_____________________________________________________________________________________________//
+
 //creates the image space
 const subjectBox = () => {
 
@@ -22,6 +24,8 @@ const subjectBox = () => {
 
 };
 
+//_____________________________________________________________________________________________//
+
 //creates the button
 const buttonsBox = function () {
   let buttonsDiv = document.createElement("div");
@@ -29,6 +33,8 @@ const buttonsBox = function () {
   buttonsDiv.className = "button_div";
   right_part_subject.appendChild(buttonsDiv);
 };
+
+//_____________________________________________________________________________________________//
 
 //creates the button 
 
@@ -67,6 +73,8 @@ const createButton = function(data){
   })
 }
 
+//_____________________________________________________________________________________________//
+
 //give the button content
 const buttonSubject = async () => {
 
@@ -76,6 +84,6 @@ const buttonSubject = async () => {
  
 };
 
-
+//_____________________________________________________________________________________________//
 
 export { subjectBox, buttonsBox, buttonSubject };
