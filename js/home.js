@@ -1,11 +1,9 @@
 "use strict";
 
-//alert('a')
+//____________________________________IMPORTS____________________________________________________//
 
 import { fetchApiDataSubject } from "./api.js";
 import { cardStudent, createListStudentsScreen,tittleStudentList,  } from "./studentsList.js";
-
-fetchApiDataSubject();
 
 
 const removeItensInScreen = function() {
@@ -32,41 +30,33 @@ const buttonsBox = function () {
   right_part_subject.appendChild(buttonsDiv);
 };
 
-//give the button content
-const buttonSubject = async () => {
+//creates the button 
 
-  const subjectsData = await fetchApiDataSubject();
+const createButton = function(data){
+
+  let subjectsData = data
 
   subjectsData.subjec.forEach((element)=>{
 
     let subjectAcronym = element.sigla
-    let subjectImage = element.icone
-
-    console.log(subjectImage)
+    let subjectname= element.nome
+    let subjectIcon = element.icone
 
     let buttonsSubject = document.createElement("button")
-
     buttonsSubject.className = "button_subject"
-    buttonsSubject.id = element.sigla
-    
-    
-    let elementSigla = element.sigla
-
     buttonsSubject.onclick = function () {
       
       removeItensInScreen()
       createListStudentsScreen()
-      tittleStudentList(element.nome)
-      cardStudent(element.sigla)
-      
-
+      tittleStudentList(subjectname)
+      cardStudent(subjectAcronym)
+    
     };
 
-    
     buttonsSubject.innerText = subjectAcronym
     const icon = document.createElement("img");
     icon.classList.add("image-icon");
-    icon.src = element.icone;
+    icon.src = subjectIcon;
     icon.alt = "Icon about course";
 
     buttonsSubject.appendChild(icon);
@@ -75,6 +65,14 @@ const buttonSubject = async () => {
     button_div.appendChild(buttonsSubject);
 
   })
+}
+
+//give the button content
+const buttonSubject = async () => {
+
+  const subjectsData = await fetchApiDataSubject();
+
+  createButton(subjectsData)
  
 };
 
