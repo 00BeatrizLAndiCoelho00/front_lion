@@ -154,7 +154,6 @@ const cardStudentStatus = async (dataSubject, status) =>{
     studentCardImg.className = "student_card_img"
     studentCardImg.src = element.foto
 
-    
     let studentCardName = document.createElement("div")
     studentCardName.className = "student_card_Name"
     studentCardName.textContent = element.nome
@@ -223,9 +222,12 @@ const optionBox = function(dataSubject){
 
       //removes the screen
       removeListStudents()
+
       if(element != "Status"){
+          
         cardStudentStatus(subjectData , element)
       }
+      
       
     }
 
@@ -403,9 +405,14 @@ const removeBoxOptions = function(){
 //___________________________________________________________________________________//
 const removeStudentScreen = function(){
 
-  content1.removeChild(overal_content_list_student)
   header.removeChild(menu) 
   header.removeChild(tittle_list_student)
+
+  let screenListStudents = document.getElementById("overal_content_list_student")
+
+  if( screenListStudents  != null  ){
+    content1.removeChild(overal_content_list_student)
+  }
 
   if (content1.appendChild(overal_content_list_student_status)){
      content1.removeChild(overal_content_list_student_status)

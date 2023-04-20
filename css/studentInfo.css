@@ -25,21 +25,28 @@
 
 #student_card_graphyc{
 
-  align-items: center;
-  justify-content: center;
   
 }
 .student_card_graphyc_content{
 
   height: 50%;
   width: 90%;
+  transform: rotate(-90deg); 
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 1vw;
+  justify-content: center;
+  
+  
 }
 .progress_bar{
-
-  transform: rotate(-90deg);
-  
+ 
+  height: 18%;
+  width: 70%;
+  box-shadow: 20px 12px 12px #3348b03f;
+  border: none;
+  border-radius: 10px;
+ 
 }
 
 
