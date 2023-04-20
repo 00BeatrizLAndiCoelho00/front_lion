@@ -105,7 +105,6 @@ const studentGraphycMaker = async (registration) => {
 
   let  dataDiciplinas = studentData.student[0].curso[0].disciplinas
 
-
   dataDiciplinas.forEach( element => {
     
    let mediaData = element.media
@@ -113,7 +112,6 @@ const studentGraphycMaker = async (registration) => {
    createBars(mediaData)
 
   });
-
 
 }
 
